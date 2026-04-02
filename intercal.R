@@ -806,6 +806,7 @@ plot_lift_jac_25
 
 plot_pred_jac_25 <- brm_jac_2025 |> 
   plot_pred() +
+  xlim(0.35, 0.75) +
   labs(x = "Jaccard", y = "Exercise")
 
 plot_pred_jac_25
@@ -852,6 +853,7 @@ plot_lift_bray_25
 
 plot_pred_bray_25 <- brm_bray_2025 |> 
   plot_pred() +
+  xlim(0.25, 0.55) +
   labs(x = "Bray-Curtis", y = "Exercise")
 
 plot_pred_bray_25
@@ -906,6 +908,7 @@ plot_lift_euc_25
 
 plot_pred_euc_25 <- brm_euc_2025 |> 
   plot_pred() +
+  xlim(0.2, 0.8) +
   labs(x = "Euclidean", y = "Exercise")
 
 plot_pred_euc_25
@@ -957,6 +960,7 @@ plot_lift_jac_23
 
 plot_pred_jac_23 <- brm_jac_2023 |> 
   plot_pred() +
+  xlim(0.35, 0.75) +
   labs(x = "Jaccard", y = "Exercise")
 
 plot_pred_jac_23
@@ -1006,6 +1010,7 @@ plot_lift_bray_23
 
 plot_pred_bray_23 <- brm_bray_2023 |> 
   plot_pred() +
+  xlim(0.25, 0.55) +
   labs(x = "Bray-Curtis", y = "Exercise")
 
 plot_pred_bray_23
@@ -1056,6 +1061,7 @@ plot_lift_euc_23
 
 plot_pred_euc_23 <- brm_euc_2023 |> 
   plot_pred() +
+  xlim(0.2, 0.8) +
   labs(x = "Euclidean", y = "Exercise")
 
 plot_pred_euc_23
@@ -1073,6 +1079,7 @@ wrap_plots(grid::textGrob("Observer richness variability before and after traini
               design = "AA
                         BC") +
   plot_annotation(tag_levels = list(c("", paste0(letters[1:2], ")")))) &
+  scale_x_continuous(limits = c(-8, 7.5), n.breaks = 10) &
   # plot_annotation("Observer richness variability before and after training",
   #                 tag_levels = 'a',
   #                 tag_suffix = ')') 
@@ -1082,6 +1089,7 @@ wrap_plots(grid::textGrob("Observer richness variability before and after traini
         margins = margin(t = 10, b = 5, l = 10, r = 5))
 
 ggsave('output/richness.png', bg = 'white', scale = 1.1)
+ggsave('output/richness.eps', bg = 'white', scale = 1.1)
 
 #beta predictions
 
@@ -1107,7 +1115,7 @@ wrap_plots(grid::textGrob("Observer dissimilarity in 2025", gp = grid::gpar(font
         plot.tag.position = c(-.02, 1))
 
 ggsave('output/beta_pred.png', bg = 'white', scale = 1.1)
-
+ggsave('output/beta_pred.eps', bg = 'white', scale = 1.1)
 
 #beta lift %
 
@@ -1135,6 +1143,7 @@ wrap_plots(grid::textGrob("Change in dissimilarity in 2025", gp = grid::gpar(fon
         plot.tag.position = c(-.02, 1))
 
 ggsave('output/beta_lift.png', bg = 'white', scale = 1.1)
+ggsave('output/beta_lift.eps', bg = 'white', scale = 1.1)
 
 #' # Session info 
 
