@@ -11,4 +11,4 @@ Data can be downloaded at <https://doi.org/10.5281/zenodo.18710554> and put in a
 
 ## Zenodo repository
 
-[![DOI](https://zenodo.org/badge/1162513686.svg)](https://doi.org/10.5281/zenodo.18711835)
+[![DOI](https://zenodo.org/badge/1162513685.svg)](https://doi.org/10.5281/zenodo.18711835)
