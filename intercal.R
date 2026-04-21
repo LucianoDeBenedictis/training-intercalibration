@@ -1072,7 +1072,7 @@ plot_pred_euc_23
 
 wrap_plots(grid::textGrob("Observer richness variability before and after training", 
                           gp = grid::gpar(fontsize = 12)),
-           plot_rich_25, plot_rich_23) +
+           plot_rich_23, plot_rich_25) +
   plot_layout(axes = 'collect',
               ncol = 2, nrow = 2, byrow = T,
               heights = c(0, 1, 1),
@@ -1093,18 +1093,18 @@ ggsave('output/richness.eps', bg = 'white', scale = 1.1)
 
 #beta predictions
 
-r1_pred <- wrap_plots(plot_pred_jac_25, plot_pred_bray_25, plot_pred_euc_25,
+r1_pred <- wrap_plots(plot_pred_jac_23, plot_pred_bray_23, plot_pred_euc_23,
+                      axes = 'collect') &
+  theme(margins = margin_part(l = 10, r = 10))
+
+r2_pred <- wrap_plots(plot_pred_jac_25, plot_pred_bray_25, plot_pred_euc_25,
                       axes = 'collect') &
   theme(axis.title.x = element_blank(),
         margins = margin_part(l = 10, r = 10))
 
-r2_pred <- wrap_plots(plot_pred_jac_23, plot_pred_bray_23, plot_pred_euc_23,
-                      axes = 'collect') &
-  theme(margins = margin_part(l = 10, r = 10))
-
-wrap_plots(grid::textGrob("Observer dissimilarity in 2025", gp = grid::gpar(fontsize = 12)),
+wrap_plots(grid::textGrob("Observer dissimilarity in 2023", gp = grid::gpar(fontsize = 12)),
            r1_pred,
-           grid::textGrob("Observer dissimilarity in  2023", gp = grid::gpar(fontsize = 12)),
+           grid::textGrob("Observer dissimilarity in  2025", gp = grid::gpar(fontsize = 12)),
            r2_pred, 
            ncol = 1, heights = rep(c(1, 10), times = 2)) +
   plot_annotation(tag_levels = list(c("", paste0(letters[1:3], ")"),
@@ -1119,19 +1119,19 @@ ggsave('output/beta_pred.eps', bg = 'white', scale = 1.1)
 
 #beta lift %
 
-r1_lift <- wrap_plots(plot_lift_jac_25, plot_lift_bray_25, plot_lift_euc_25,
+r1_lift <- wrap_plots(plot_lift_jac_23, plot_lift_bray_23, plot_lift_euc_23,
+                      axes = 'collect') &
+  theme(margins = margin_part(l = 10, r = 10))
+
+r2_lift <- wrap_plots(plot_lift_jac_25, plot_lift_bray_25, plot_lift_euc_25,
                       axes = 'collect') &
   theme(axis.title.x = element_blank(),
         plot.title = element_text(hjust = 0.5, size = 12),
         margins = margin_part(l = 10, r = 10))
 
-r2_lift <- wrap_plots(plot_lift_jac_23, plot_lift_bray_23, plot_lift_euc_23,
-                      axes = 'collect') &
-  theme(margins = margin_part(l = 10, r = 10))
-
-wrap_plots(grid::textGrob("Change in dissimilarity in 2025", gp = grid::gpar(fontsize = 12)),
+wrap_plots(grid::textGrob("Change in dissimilarity in 2023", gp = grid::gpar(fontsize = 12)),
            r1_lift,
-           grid::textGrob("Change in dissimilarity in 2023", gp = grid::gpar(fontsize = 12)),
+           grid::textGrob("Change in dissimilarity in 2025", gp = grid::gpar(fontsize = 12)),
            r2_lift, 
            ncol = 1, heights = rep(c(1, 10), times = 2)) +
   plot_annotation(tag_levels = list(c("", paste0(letters[1:3], ")"),
